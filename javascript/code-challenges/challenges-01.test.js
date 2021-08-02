@@ -10,11 +10,11 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 
 const addOne = (arr) => {
   // Solution code here...
-  let incNumArr=[];
-  arr.forEach(number =>incNumArr.push(number+1));
+  let incNumArr = [];
+  arr.forEach(number => incNumArr.push(number + 1));
   return incNumArr;
 };
-let numArr=[6,7,8,9,10];
+let numArr = [6, 7, 8, 9, 10];
 addOne(numArr);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -26,11 +26,11 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
-  let exlaAded=[];
+  let exlaAded = [];
   arr.forEach(string => exlaAded.push(`${string}!`));
   return exlaAded;
 };
-let stringsArr=['my', 'name', 'is','anas'];
+let stringsArr = ['my', 'name', 'is', 'anas'];
 addExclamation(stringsArr);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -42,11 +42,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
-  let upperArr=[];
+  let upperArr = [];
   arr.forEach(lower => upperArr.push(lower.toUpperCase()));
   return upperArr;
 };
-let lowerArr=['one', 'two','three', 'four'];
+let lowerArr = ['one', 'two', 'three', 'four'];
 allUpperCase(lowerArr);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -65,13 +65,10 @@ const greeting = (word) => {
 
 const speaker = (words, callback) => {
   // Solution code here...
-  words.forEach(word => {callback(word);
-    return word;
-  }
-  );
+  let wordArr = [];
+  words.forEach(word => wordArr.push(callback(word)));
+  return wordArr;
 };
-let wordsArr=['banana', 'apple', 'mango','orange'];
-speaker(wordsArr,greeting);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -90,10 +87,15 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,7 +117,15 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  // Solution code here...\
+  let list = [];
+  availableItems.forEach(item => {
+    if (item.available === true) {
+      list.push(item.name);
+    }
+  }
+  );
+  return list;
 };
 
 /* ------------------------------------------------------------------------------------------------
