@@ -23,6 +23,11 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
+  let newAnimalArr=[];
+  arr.forEach(element => {
+    newAnimalArr.push(callback(element));
+  });
+  return newAnimalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,6 +40,8 @@ For example: 'Cat' would come before 'apple'
 
 const sortNames = (arr) => {
   // Solution code here...
+  arr.sort();
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,6 +54,8 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
+  arr.sort((a,b)=> {return a-b;});
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +68,7 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 
 const sortBackwards = (arr) => {
   // Solution code here...
+  return arr.sort((a,b)=>{return b-a;});
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,6 +83,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,8 +101,9 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
-};
+  return arr.sort((a,b)=>{return a.price-b.price;});
 
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
